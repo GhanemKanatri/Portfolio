@@ -222,3 +222,30 @@ footer {
     .hero h2 { font-size: 1.5rem; }
     .nav-links { display: none; } /* Add a hamburger menu later if needed */
 }
+
+/* --- ANIMATION CLASSES --- */
+
+/* Initial state of elements before they scroll into view */
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); /* Smooth easing */
+}
+
+/* State when elements are visible */
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+/* Optional: Make animations disabled if the user prefers reduced motion (Accessibility) */
+@media (prefers-reduced-motion: reduce) {
+    .hidden {
+        transition: none;
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
